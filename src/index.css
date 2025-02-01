@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+
+/* Base Styles */
+@layer base {
+  body {
+    @apply antialiased;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+/* Custom Animations */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100px) rotate(-30deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100px) rotate(30deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes joinRings {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  50% {
+    transform: scale(1.1) translateY(-10px);
+  }
+  100% {
+    transform: scale(0) translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes showHeart {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floralSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom Classes */
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-body {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.ring-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.ring-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.rings-container {
+  animation: joinRings 1.5s ease-in-out forwards;
+  animation-delay: 1.2s;
+}
+
+.heart-entrance {
+  opacity: 0;
+  animation: showHeart 1s ease-out forwards;
+  animation-delay: 2s;
+}
+
+.heart-beat {
+  animation: heartBeat 1.5s infinite;
+}
+
+.content-fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.button-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.button-hover-effect:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
+}
+
+/* Floral Patterns */
+.floral-bg {
+  background-image: url('https://images.unsplash.com/photo-1520690214124-2405c5217036?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.1;
+}
+
+.floral-border {
+  position: relative;
+}
+
+.floral-border::before,
+.floral-border::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url('https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?auto=format&fit=crop&w=100&q=80');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+}
+
+.floral-border::before {
+  top: -25px;
+  left: -25px;
+  transform: rotate(-45deg);
+}
+
+.floral-border::after {
+  bottom: -25px;
+  right: -25px;
+  transform: rotate(135deg);
+}
+
+/* Loading Animation */
+.loading-flower {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #E9D5FF;
+  border-top-color: #7C3AED;
+  border-radius: 50%;
+  animation: floralSpin 1s linear infinite;
+}
+
+/* Custom Gradients */
+.bg-wedding-gradient {
+  background: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 50%, #EDE9FE 100%);
+}
+
+.bg-card-gradient {
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+  backdrop-filter: blur(10px);
+}
+
+/* Custom Shadows */
+.shadow-romantic {
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.1);
+}
+
+/* Custom Borders */
+.border-romantic {
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3E8FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7C3AED;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6D28D9;
+}

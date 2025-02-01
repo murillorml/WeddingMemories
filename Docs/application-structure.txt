@@ -1,0 +1,339 @@
+# Wedding Memories Application Structure Documentation
+
+## Overview
+This document provides a comprehensive overview of the Wedding Memories application structure, including directories, files, and their purposes. The application is built using React, TypeScript, and FastAPI, following modern web development practices and architectural patterns.
+
+## Root Directory Structure
+/home/project/
+├── src/                 # Frontend source code
+├── supabase/           # Database migrations
+├── docs/               # Documentation
+└── public/             # Static assets
+
+## Frontend Structure (src/)
+
+### Core Files
+- main.tsx
+  Purpose: Application entry point
+  Features:
+  - Initializes React application
+  - Renders root component
+  - Checks database migrations before rendering
+
+- App.tsx
+  Purpose: Root component
+  Features:
+  - Implements main routing logic
+  - Handles authentication state
+  - Manages global application state
+  - Renders different views based on routes
+
+- index.css
+  Purpose: Global styles
+  Features:
+  - Tailwind CSS imports
+  - Custom animations
+  - Typography settings
+  - Global theme variables
+
+### Components Directory (src/components/)
+Organized collection of reusable UI components
+
+1. Authentication Components:
+- AdminLogin.tsx
+  Purpose: Admin authentication interface
+  Features:
+  - Login form
+  - Password verification
+  - Error handling
+  - Reset password functionality
+
+2. Core Feature Components:
+- AdminDashboard.tsx
+  Purpose: Main admin interface
+  Features:
+  - Wedding statistics
+  - Memory management
+  - Guest list
+  - Settings management
+
+- AudioRecorder.tsx
+  Purpose: Audio recording interface
+  Features:
+  - Audio recording
+  - Playback controls
+  - Upload functionality
+  - Error handling
+
+- BackButton.tsx
+  Purpose: Navigation component
+  Features:
+  - History management
+  - Consistent navigation
+
+- CountdownTimer.tsx
+  Purpose: Wedding countdown display
+  Features:
+  - Real-time updates
+  - Days/hours/minutes/seconds display
+  - Automatic updates
+
+- CreateWedding.tsx
+  Purpose: Wedding creation interface
+  Features:
+  - Form validation
+  - Image upload
+  - PIN generation
+  - Success animations
+
+3. Guest Management Components:
+- GuestRegistration.tsx
+  Purpose: Guest registration interface
+  Features:
+  - Name input
+  - PIN verification
+  - Wedding association
+  - Error handling
+
+- GuestSelection.tsx
+  Purpose: Wedding selection interface
+  Features:
+  - Wedding list
+  - Search functionality
+  - Filtering options
+
+4. Media Components:
+- MediaUpload.tsx
+  Purpose: Media upload interface
+  Features:
+  - Photo/video upload
+  - Camera integration
+  - Preview functionality
+  - Upload progress
+
+- MessageForm.tsx
+  Purpose: Message submission interface
+  Features:
+  - Text input
+  - Character limit
+  - Submission handling
+
+5. Wedding Management Components:
+- WeddingList.tsx
+  Purpose: Wedding management interface
+  Features:
+  - Wedding display
+  - Search/filter
+  - Admin actions
+
+- WelcomeScreen.tsx
+  Purpose: Initial application screen
+  Features:
+  - Role selection
+  - Animations
+  - Navigation options
+
+### Library Directory (src/lib/)
+
+1. API Module:
+- api.ts
+  Purpose: API communication layer
+  Features:
+  - REST endpoints
+  - Error handling
+  - Type safety
+  - Request/response formatting
+
+2. Database Types:
+- database.types.ts
+  Purpose: TypeScript type definitions
+  Features:
+  - Table interfaces
+  - Type safety
+  - Schema validation
+
+3. Custom Hooks:
+- hooks/useGuests.ts
+  Purpose: Guest management logic
+  Features:
+  - Guest data fetching
+  - State management
+  - CRUD operations
+
+- hooks/useMemories.ts
+  Purpose: Memory management logic
+  Features:
+  - Media handling
+  - State management
+  - Upload operations
+
+- hooks/useWeddings.ts
+  Purpose: Wedding management logic
+  Features:
+  - Wedding data handling
+  - State management
+  - CRUD operations
+
+## Backend Structure
+
+### Database (supabase/migrations/)
+Contains SQL migration files for database schema management
+
+Key Tables:
+1. weddings
+   - Stores wedding details
+   - Authentication information
+   - Basic metadata
+
+2. guests
+   - Guest information
+   - Wedding associations
+   - Timestamps
+
+3. photos
+   - Photo metadata
+   - Storage links
+   - Guest associations
+
+4. videos
+   - Video metadata
+   - Storage links
+   - Guest associations
+
+5. audios
+   - Audio recordings
+   - Duration information
+   - Guest associations
+
+6. messages
+   - Text messages
+   - Guest associations
+   - Timestamps
+
+### Python Backend Files
+
+1. main.py
+   Purpose: FastAPI application entry point
+   Features:
+   - Route definitions
+   - Middleware configuration
+   - Error handling
+   - File upload handling
+
+2. models.py
+   Purpose: SQLAlchemy models
+   Features:
+   - Table definitions
+   - Relationships
+   - Constraints
+   - Validation
+
+3. schemas.py
+   Purpose: Pydantic schemas
+   Features:
+   - Request/response models
+   - Validation
+   - Type safety
+   - Data transformation
+
+4. database.py
+   Purpose: Database configuration
+   Features:
+   - Connection management
+   - Session handling
+   - Engine configuration
+
+## Configuration Files
+
+1. package.json
+   Purpose: Node.js project configuration
+   Features:
+   - Dependencies
+   - Scripts
+   - Project metadata
+
+2. tsconfig.json
+   Purpose: TypeScript configuration
+   Features:
+   - Compiler options
+   - Module resolution
+   - Type checking
+
+3. vite.config.ts
+   Purpose: Vite bundler configuration
+   Features:
+   - Plugin setup
+   - Build optimization
+   - Development server
+
+4. tailwind.config.js
+   Purpose: Tailwind CSS configuration
+   Features:
+   - Theme customization
+   - Plugin configuration
+   - Utility classes
+
+5. postcss.config.js
+   Purpose: PostCSS configuration
+   Features:
+   - CSS processing
+   - Plugin configuration
+
+## Security Features
+
+1. Authentication:
+   - Email/password authentication
+   - PIN-based guest access
+   - Session management
+
+2. Authorization:
+   - Role-based access control
+   - Guest permissions
+   - Admin privileges
+
+3. Data Protection:
+   - Input validation
+   - SQL injection prevention
+   - XSS protection
+
+## Development Workflow
+
+1. Local Development:
+   - npm run dev: Start development server
+   - npm run build: Production build
+   - npm run preview: Preview production build
+
+2. Database Management:
+   - Automatic migrations
+   - Type generation
+   - Schema validation
+
+3. Deployment:
+   - Static file generation
+   - API deployment
+   - Database migrations
+
+## Best Practices Implementation
+
+1. Code Organization:
+   - Feature-based structure
+   - Separation of concerns
+   - Reusable components
+
+2. Type Safety:
+   - TypeScript throughout
+   - Runtime validation
+   - API type checking
+
+3. Performance:
+   - Code splitting
+   - Lazy loading
+   - Asset optimization
+
+4. Security:
+   - Input sanitization
+   - CORS configuration
+   - Authentication checks
+
+## Conclusion
+This application follows modern web development practices, implementing a clean architecture that separates concerns and promotes maintainability. The structure allows for easy scaling and feature addition while maintaining security and performance standards.
