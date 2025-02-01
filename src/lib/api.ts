@@ -7,7 +7,7 @@ type Video = Database['public']['Tables']['videos']['Row'];
 type Audio = Database['public']['Tables']['audios']['Row'];
 type Message = Database['public']['Tables']['messages']['Row'];
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://wedding-memories-api.onrender.com';
 
 class APIError extends Error {
   constructor(public status: number, message: string) {
